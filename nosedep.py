@@ -68,16 +68,7 @@ from itertools import chain, tee
 from nose.loader import TestLoader
 from nose.plugins import Plugin
 from nose.suite import ContextSuite
-try:
-    # Older versions of setuptools
-    from setuptools.compat import reraise
-except ImportError:
-    try:
-        from setuptools.extern.six import reraise
-    except ImportError:
-        # Fix setuptools v50.x remove six from 'extern'
-        # https://github.com/pypa/setuptools/commit/675d32ff667e90d239c95359007a58cb3aa88a97
-        from six import reraise
+from six import reraise
 from toposort import toposort
 
 dependencies = defaultdict(set)
